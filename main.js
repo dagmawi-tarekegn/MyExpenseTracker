@@ -51,7 +51,7 @@ function renderTransactions() {
 
         li.innerHTML = `
             ${t.title} - ${t.amount}
-            <span class="delete" onclick="deleteTransaction(${t.id})">X</span>
+            <span class="delete" onclick="deleteTransaction(${t.id})">Delete</span>
         `;
 
         list.appendChild(li);
@@ -68,3 +68,11 @@ function renderTransactions() {
     balanceEl.textContent = income - expense;
 }
 
+
+function deleteTransaction(id) {
+    transactions = transactions.filter(t => t.id !== id);
+    localStorage.setItem("transactions", JSON.stringify(transactions));
+    renderTransactions();
+}
+
+renderTransactions();
