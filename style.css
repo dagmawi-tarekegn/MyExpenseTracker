@@ -34,3 +34,37 @@ button {
 button:hover {
     background: darkcyan;
 }
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: lightgray;
+    margin: 6px 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.income {
+    border-left: 5px solid green;
+}
+
+.expense {
+    border-left: 5px solid red;
+}
+
+.summary {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.delete {
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+}
