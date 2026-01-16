@@ -34,5 +34,37 @@ function addTransaction() {
     titleInput.value = "";
     amountInput.value = "";
 
-    
+    renderTransactions();
+
 }
+
+
+function renderTransactions() {
+    list.innerHTML = "";
+
+    let income = 0;
+    let expense = 0;
+
+    transactions.forEach(t => {
+        const li = document.createElement("li");
+        li.classList.add(t.type);
+
+        li.innerHTML = `
+            ${t.title} - ${t.amount}
+            <span class="delete" onclick="deleteTransaction(${t.id})">X</span>
+        `;
+
+        list.appendChild(li);
+
+        if (t.type === "income") {
+            income += t.amount;
+        } else {
+            expense += t.amount;
+        }
+    });
+
+    incomeEl.textContent = income;
+    expenseEl.textContent = expense;
+    balanceEl.textContent = income - expense;
+}
+
